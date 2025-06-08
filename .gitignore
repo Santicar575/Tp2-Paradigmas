@@ -1,0 +1,5 @@
+# Ignorar configuración de VS Code
+.vscode/
+
+#Ignorar archivos de serializacion
+*.dat
