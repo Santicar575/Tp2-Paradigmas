@@ -9,12 +9,8 @@ private:
   int experience;
 public:
   // Retorna el nombre del Pokemon
-  std::string getName() const {
-    return name;
-  }
+  std::string getName() const;
 
   // Retorna los puntos de experiencia Pokemon
-  int getExperience() const {
-    return experience;
-  }
+  int getExperience() const;
 };

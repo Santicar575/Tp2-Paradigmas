@@ -1,0 +1,27 @@
+#pragma once
+
+#include <iostream>
+#include <unordered_map>
+#include <array>
+
+class PokemonInfo
+{
+private:
+  std::string tipo;
+  std::string descripcion;
+  std::unordered_map<std::string, int> ataquesDisponibles;
+  std::array<int, 3> experienciaProximoNivel;
+
+public:
+  // Retorna el tipo del Pokémon
+  std::string getTipo() const;
+
+  // Retorna la descripción del Pokémon
+  std::string getDescripcion() const;
+
+  // Retorna el mapa de ataques disponibles del Pokémon
+  std::unordered_map<std::string, int> getAtaquesDisponibles() const;
+
+  // Retorna el array de experiencia necesaria para los próximos niveles
+  std::array<int, 3> getExperienciaProximoNivel() const;
+};
