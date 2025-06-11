@@ -3,3 +3,6 @@
 
 #Ignorar archivos de serializacion
 *.dat
+
+#Ignorar la carpeta build
+build/
