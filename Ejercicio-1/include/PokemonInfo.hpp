@@ -13,6 +13,8 @@ private:
   std::array<int, 3> experienciaProximoNivel;
 
 public:
+  PokemonInfo(std::string tipo, std::string descripcion, std::unordered_map<std::string, int> ataques, std::array<int, 3> experienciaNivel) : tipo(tipo), descripcion(descripcion), ataquesDisponibles(ataques), experienciaProximoNivel(experienciaNivel) {};
+
   // Retorna el tipo del Pokémon
   std::string getTipo() const;
 

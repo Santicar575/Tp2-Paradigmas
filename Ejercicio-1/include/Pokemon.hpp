@@ -8,6 +8,7 @@ private:
   std::string name;
   int experience;
 public:
+  Pokemon(std::string name, int experience = 0);
   // Retorna el nombre del Pokemon
   std::string getName() const;
 
