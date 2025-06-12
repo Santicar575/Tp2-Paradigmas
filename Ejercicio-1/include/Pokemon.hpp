@@ -17,7 +17,9 @@ public:
   // Retorna los puntos de experiencia Pokemon
   int getExperience() const;
 
-  void serializar(std::ofstream& outfile);
+  // Al utilizarse para serializar las keys de un diccionario, serializar debe
+  // ser const, ya que para evitar manipulación de keys, c++ establece las keys como const.
+  void serializar(std::ofstream& outfile) const;
 
   void deserializar(std::ifstream& infile);
 

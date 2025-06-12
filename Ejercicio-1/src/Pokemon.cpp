@@ -1,6 +1,8 @@
 #include "Pokemon.hpp"
 #include <iostream>
 #include <fstream>
+constexpr int SPACES_BEFORE = 10;
+
 Pokemon::Pokemon(std::string name, int experience) : name(name), experience(experience) {}
 
 std::string Pokemon::getName() const
@@ -27,11 +29,11 @@ std::size_t Pokehash::operator()(const Pokemon &p) const
 
 std::ostream &operator<<(std::ostream &os, const Pokemon &p)
 {
-  os << "========== || " << p.name << ", Experiencia: " << p.experience << " || ==========" << std::endl;
+  os << std::string(SPACES_BEFORE, ' ') << "========== || " << p.name << ", Experiencia: " << p.experience << " || ==========" << std::endl;
   return os;
 }
 
-void Pokemon::serializar(std::ofstream &outfile)
+void Pokemon::serializar(std::ofstream &outfile) const
 {
   // Para serializar strings primero se guarda el largo, luego el contenido
   size_t largoName = name.size();

@@ -1,9 +1,11 @@
 #include "PokemonInfo.hpp"
 #include <string>
 #include <fstream>
+constexpr int SPACES_BEFORE = 10;
 
 PokemonInfo::PokemonInfo(std::string tipo, std::string descripcion, std::unordered_map<std::string, int> ataques, std::array<int, 3> experienciaNivel) : tipo(tipo), descripcion(descripcion), ataquesDisponibles(ataques), experienciaProximoNivel(experienciaNivel) {};
 
+// retorna el tipo de pokemon
 std::string PokemonInfo::getTipo() const { return tipo; }
 
 // Retorna la descripción del Pokémon
@@ -17,18 +19,18 @@ std::array<int, 3> PokemonInfo::getExperienciaProximoNivel() const { return expe
 
 std::ostream &operator<<(std::ostream &os, const PokemonInfo &p)
 {
-  os << "| Tipo: " << p.getTipo() << std::endl
-     << std::string(100, '-') << std::endl
-     << "| Descripción: " << p.getDescripcion() << std::endl
-     << std::string(100, '-') << std::endl
-     << "| Ataques disponibles: ";
+  os << std::string(SPACES_BEFORE, ' ') << "| Tipo: " << p.getTipo() << std::endl
+     << std::string(SPACES_BEFORE, ' ') << std::string(100, '-') << std::endl
+     << std::string(SPACES_BEFORE, ' ') << "| Descripción: " << p.getDescripcion() << std::endl
+     << std::string(SPACES_BEFORE, ' ') << std::string(100, '-') << std::endl
+     << std::string(SPACES_BEFORE, ' ') << "| Ataques disponibles: ";
   for (const auto &ataque : p.getAtaquesDisponibles())
   {
     os << ataque.first << " (daño: " << ataque.second << ") ";
   }
   os << std::endl
-     << std::string(100, '-') << std::endl;
-  os << "| Experiencia para próximos niveles: ";
+     << std::string(SPACES_BEFORE, ' ') << std::string(100, '-') << std::endl;
+  os << std::string(SPACES_BEFORE, ' ') << "| Experiencia para próximos niveles: ";
   auto exp = p.getExperienciaProximoNivel();
   for (size_t i = 0; i < exp.size(); ++i)
   {
@@ -37,7 +39,7 @@ std::ostream &operator<<(std::ostream &os, const PokemonInfo &p)
       os << ", ";
   }
   os << std::endl
-     << std::string(100, '-') << std::endl;
+     << std::string(SPACES_BEFORE, ' ') << std::string(100, '-') << std::endl;
   return os;
 }
 
