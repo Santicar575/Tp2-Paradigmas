@@ -27,5 +27,9 @@ public:
   // Retorna el array de experiencia necesaria para los próximos niveles
   std::array<int, 3> getExperienciaProximoNivel() const;
 
+  void serializar(std::ofstream& outfile);
+
+  void deserializar(std::ifstream& infile);
+
   friend std::ostream &operator<<(std::ostream &os, const PokemonInfo &p);
 };

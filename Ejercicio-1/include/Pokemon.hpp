@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <fstream>
 
 class Pokemon
 {
@@ -15,6 +16,10 @@ public:
 
   // Retorna los puntos de experiencia Pokemon
   int getExperience() const;
+
+  void serializar(std::ofstream& outfile);
+
+  void deserializar(std::ifstream& infile);
 
   bool operator==(const Pokemon &other) const;
 
