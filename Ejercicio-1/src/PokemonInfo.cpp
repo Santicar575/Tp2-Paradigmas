@@ -43,6 +43,7 @@ std::ostream &operator<<(std::ostream &os, const PokemonInfo &p)
 
 void PokemonInfo::serializar(std::ofstream &outfile)
 {
+  // Para serializar strings primero se guarda el largo, luego el contenido
   size_t largoTipo = tipo.size();
   outfile.write(reinterpret_cast<char *>(&largoTipo), sizeof(largoTipo));
   outfile.write(tipo.c_str(), largoTipo);
@@ -51,6 +52,7 @@ void PokemonInfo::serializar(std::ofstream &outfile)
   outfile.write(reinterpret_cast<char *>(&largoDescripcion), sizeof(largoDescripcion));
   outfile.write(descripcion.c_str(), largoDescripcion);
 
+  // serializa el numero de ataques primero, luego se serializan los contenidos de cada ataque
   size_t numAtaques = ataquesDisponibles.size();
   outfile.write(reinterpret_cast<char *>(&numAtaques), sizeof(numAtaques));
   for (const auto &ataque : ataquesDisponibles)
@@ -66,6 +68,7 @@ void PokemonInfo::serializar(std::ofstream &outfile)
 
 void PokemonInfo::deserializar(std::ifstream &infile)
 {
+  // para deserializar strings, primero se obtiene el largo, se resizea el destinatario, luego se lee esa cantidad de caracteres
   size_t largoTipo;
   infile.read(reinterpret_cast<char *>(&largoTipo), sizeof(largoTipo));
   tipo.resize(largoTipo);
@@ -76,6 +79,7 @@ void PokemonInfo::deserializar(std::ifstream &infile)
   descripcion.resize(largoDescripcion);
   infile.read(&descripcion[0], largoDescripcion);
 
+  // Para reconstruir el diccionario primero se obtiene el largo, luego uno por uno los contenidos.
   size_t numAtaques;
   infile.read(reinterpret_cast<char *>(&numAtaques), sizeof(numAtaques));
   ataquesDisponibles.clear();
@@ -87,6 +91,7 @@ void PokemonInfo::deserializar(std::ifstream &infile)
     infile.read(&nombreAtaque[0], largoNombre);
     int danio;
     infile.read(reinterpret_cast<char *>(&danio), sizeof(danio));
+    // se agrega al diccionario el elemento con su valor correspondiente
     ataquesDisponibles[nombreAtaque] = danio;
   }
 
