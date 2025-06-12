@@ -3,3 +3,6 @@
 
 #Ignorar archivos de serializacion
 *.dat
+
+makefile
+main

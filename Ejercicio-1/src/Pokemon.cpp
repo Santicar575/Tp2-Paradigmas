@@ -12,3 +12,21 @@ int Pokemon::getExperience() const
 {
   return experience;
 };
+
+bool Pokemon::operator==(const Pokemon &other) const
+{
+  // Compara por nombres
+  return name == other.name;
+}
+
+std::size_t Pokehash::operator()(const Pokemon &p) const
+{
+  // hashea segun el nombre
+  return std::hash<std::string>()(p.getName());
+}
+
+std::ostream &operator<<(std::ostream &os, const Pokemon &p)
+{
+  os << "========== || " << p.name << ", Experiencia: " << p.experience << " || ==========" << std::endl;
+  return os;
+}
