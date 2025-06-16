@@ -16,11 +16,11 @@ int main(){
             // El dron i tiene como zona a la derecha i y a la izquierda i+1 (circular)
             // Si i es el último dron, su zona a la izquierda será 0 (manejado por el operador %)
             Drone d(i, i, (i + 1) % DRONES_AMOUNT);
-            d.takeOff(zones);
+            d.takeOff(std::ref(zones));
         });
     }
 
     for (auto& t : threads) t.join();
-
+    
     return 0;
 }

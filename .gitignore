@@ -7,3 +7,5 @@
 makefile
 main
 datapokedex.bin
+#Ignorar la carpeta build
+build/
