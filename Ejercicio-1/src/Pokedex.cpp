@@ -21,7 +21,8 @@ void Pokedex::mostrar(const Pokemon &p) const
   auto it = data.find(p);
   if (it != data.end())
   {
-    std::cout << it->first << it->second << std::endl;
+    // std::cout << it->first << it->second << std::endl;
+    std::cout << p << it->second << std::endl;
   }
   else
   {
