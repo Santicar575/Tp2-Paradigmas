@@ -4,5 +4,8 @@
 #Ignorar archivos de serializacion
 *.dat
 
+makefile
+main
+datapokedex.bin
 #Ignorar la carpeta build
 build/
