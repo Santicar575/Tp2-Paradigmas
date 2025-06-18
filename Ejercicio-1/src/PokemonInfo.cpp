@@ -19,6 +19,7 @@ std::array<int, 3> PokemonInfo::getExperienciaProximoNivel() const { return expe
 
 std::ostream &operator<<(std::ostream &os, const PokemonInfo &p)
 {
+  // Se imprimen uno a uno los atributos de la PokemonInfo
   os << std::string(SPACES_BEFORE, ' ') << "| Tipo: " << p.getTipo() << std::endl
      << std::string(SPACES_BEFORE, ' ') << std::string(100, '-') << std::endl
      << std::string(SPACES_BEFORE, ' ') << "| Descripción: " << p.getDescripcion() << std::endl
@@ -30,11 +31,12 @@ std::ostream &operator<<(std::ostream &os, const PokemonInfo &p)
   }
   os << std::endl
      << std::string(SPACES_BEFORE, ' ') << std::string(100, '-') << std::endl;
-  os << std::string(SPACES_BEFORE, ' ') << "| Experiencia para próximos niveles: ";
+  os << std::string(SPACES_BEFORE, ' ') << "| Experiencia requerida para cada nivel: ";
   auto exp = p.getExperienciaProximoNivel();
   for (size_t i = 0; i < exp.size(); ++i)
   {
     os << exp[i];
+    os << " (nivel "<<i<<")";
     if (i < exp.size() - 1)
       os << ", ";
   }

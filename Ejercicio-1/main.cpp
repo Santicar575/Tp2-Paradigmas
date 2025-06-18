@@ -24,7 +24,7 @@ int main()
   {{"Ascuas", 4}, {"Lanzallamas", 6}, {"Giro Fuego", 5}},
   {0, 250, 1300});
   
-  cout << string(100, '=') << endl << "Se creará una Pokedex vinculada al archivo datapokedex.bin" << endl << "y se agregarán los Pokemones Squirtle, Bulbasaur y Charmander." << endl << "Notar que si ya se corrió el programa, los pokemones fueron recuperados del archivo y ya se encuentran registrados "<< endl << "(a menos que se haya borrado el archivo datapokedex.bin)." << endl << string(100, '=') << endl;
+  cout << string(100, '=') << endl << "Se creará una Pokedex vinculada al archivo datapokedex.bin" << endl << "y se agregarán los Pokemones Squirtle, Bulbasaur y Charmander." << endl << "Notar que si ya se corrió el programa, los pokemones fueron recuperados del archivo y ya se encuentran registrados "<< endl << "(a menos que se haya borrado el archivo datapokedex.bin corriendo: make cleandata)." << endl << string(100, '=') << endl;
 
   Pokedex pokedex("datapokedex.bin");
   

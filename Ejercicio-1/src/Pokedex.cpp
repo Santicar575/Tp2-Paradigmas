@@ -21,7 +21,8 @@ void Pokedex::mostrar(const Pokemon &p) const
   auto it = data.find(p);
   if (it != data.end())
   {
-    // std::cout << it->first << it->second << std::endl;
+    // se imprime p para que la experiencia mostrada sea la del pokemon buscado
+    // Si se imprimiese it->first, mostraría la experiencia del pokemon en la pokedex
     std::cout << p << it->second << std::endl;
   }
   else
